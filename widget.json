@@ -1,0 +1,6 @@
+{
+	"name": "airbnb-calendar",
+	"description": "an übersicht widget utilizing Airbnbs react-dates single calendar component",
+	"author": "Kevin Knopp",
+	"email": "kknopper@gmail.com"
+}
