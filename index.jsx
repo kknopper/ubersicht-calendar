@@ -3,6 +3,11 @@ export const command = undefined;
 export const refreshFrequency = 3600000; //update every hour
 
 // ============================================
+//					Calendar Settings
+// ============================================
+const calendarStartDay = 0; //set 0 - 6 for the days of the week. Default is 0 for Sunday.
+
+// ============================================
 //					CSS Styles
 // ============================================
 
@@ -71,13 +76,20 @@ let months = [
 	"November",
 	"December"
 ];
-let week = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+
+let sundayWeek = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+let week;
+calendarStartDay > 0
+	? (week = reorderCalendar(calendarStartDay, sundayWeek))
+	: (week = sundayWeek);
+
 let todaysDate = new Date().getDate(); // todays number calendar day
 let year = new Date().getFullYear(); // 20XX
 let month = new Date().getMonth() + 1; // 1 - 12
 let monthString = month < 10 ? `0${month}` : month; // 01 - 12
 let FirstOfMonthString = `${year}-${monthString}-01`;
-let weekdayFirstOfMonth = new Date(FirstOfMonthString).getDay() + 1; //number of days to skip on calendar
+let weekdayFirstOfMonth = new Date(FirstOfMonthString).getDay() + 1; //first day of the month
+let daysToSkip = week.indexOf(sundayWeek[weekdayFirstOfMonth]) + 1;
 let currentMonthDays = new Date(year, month, 0).getDate(); //get number of days in todays month
 
 //create an array with the number of days of todays month
@@ -95,6 +107,12 @@ function addCalendarGaps(daysToSkip) {
 	return clonedCalendarArray;
 }
 
+function reorderCalendar(startDay, calendarWeekArray) {
+	let sendToBack = calendarWeekArray.slice(0, startDay);
+	let sendToFront = calendarWeekArray.slice(startDay, calendarWeekArray.length);
+	return sendToFront.concat(sendToBack);
+}
+
 export const render = ({ output, error }) => {
 	return error ? (
 		<Error>
@@ -109,7 +127,7 @@ export const render = ({ output, error }) => {
 				{week.map(day => (
 					<Weekday key={day}>{day}</Weekday>
 				))}
-				{addCalendarGaps(weekdayFirstOfMonth).map(day =>
+				{addCalendarGaps(daysToSkip).map(day =>
 					day == todaysDate ? (
 						<Day className={today} key={day}>
 							{day}

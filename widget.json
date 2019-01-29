@@ -1,6 +1,6 @@
 {
-	"name": "airbnb-calendar",
-	"description": "an übersicht widget utilizing Airbnbs react-dates single calendar component",
+	"name": "ubersicht-calendar",
+	"description": "An Übersicht calendar widget using ES6 syntax and css grid",
 	"author": "Kevin Knopp",
 	"email": "kknopper@gmail.com"
 }
