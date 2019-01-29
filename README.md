@@ -10,4 +10,4 @@
 ## Screenshot
 
 ---
-![Example!](Calendar.png)
+![Example!](screenshot.png)
