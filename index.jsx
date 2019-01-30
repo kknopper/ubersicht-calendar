@@ -3,12 +3,12 @@ export const command = undefined;
 export const refreshFrequency = 3600000; //update every hour
 
 // ============================================
-//					Calendar Settings
+// Calendar Settings
 // ============================================
 const calendarStartDay = 0; //set 0 - 6 for the days of the week. Default is 0 for Sunday.
 
 // ============================================
-//					CSS Styles
+// CSS Styles
 // ============================================
 
 export const className = `
@@ -59,7 +59,7 @@ const today = css`
 `;
 
 // ============================================
-//					JS Logic
+// JS Logic
 // ============================================
 
 let months = [
