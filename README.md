@@ -2,7 +2,7 @@
 
 ## Settings
 
-- Set the day of the week to start your Calendar by setting the calendarStartDay variable. 0 for Sunday, 1 for Monday etc. (line 8).
+- Set the day of the week to start your Calendar by setting the calendarStartDay variable. 0 for Sunday, 1 for Monday etc. (line 6).
 - Update widget screen position by adjusting the className css properties (line 15).
 
 ---
@@ -10,4 +10,5 @@
 ## Screenshot
 
 ---
+
 ![Example!](screenshot.png)
