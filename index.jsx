@@ -105,7 +105,7 @@ export const command = dispatch => {
 	let month = new Date().getMonth() + 1; // 1 - 12
 	let monthString = month < 10 ? `0${month}` : month; // 01 - 12
 	let FirstOfMonthString = `${year}-${monthString}-01`;
-	let weekdayFirstOfMonth = new Date(FirstOfMonthString).getDay() + 1; //first day of the month
+	let weekdayFirstOfMonth = new Date(FirstOfMonthString).getDay(); //first day of the month
 	let daysToSkip = week.indexOf(sundayWeek[weekdayFirstOfMonth]) + 1;
 	let currentMonthDays = new Date(year, month, 0).getDate(); //get number of days in todays month
 
